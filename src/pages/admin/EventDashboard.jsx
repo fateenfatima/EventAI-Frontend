@@ -7,23 +7,17 @@ import "./EventDashboard.css";
 const API_URL = "http://localhost:5000/api/events";
 
 export default function EventDashboard() {
-  // ==============================
   // AUTH STATE
-  // ==============================
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
-  // ==============================
   // EVENT STATES
-  // ==============================
   const [events, setEvents] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editingEvent, setEditingEvent] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
 
-  // ==============================
   // CHECK LOGIN ON LOAD
-  // ==============================
   useEffect(() => {
     const loggedIn = localStorage.getItem("adminLoggedIn");
     if (loggedIn === "true") {
@@ -31,9 +25,7 @@ export default function EventDashboard() {
     }
   }, []);
 
-  // ==============================
   // LOAD EVENTS
-  // ==============================
   useEffect(() => {
     if (!isAdminLoggedIn) return;
 
@@ -59,17 +51,13 @@ export default function EventDashboard() {
       .catch((err) => console.error("Error loading events:", err));
   }, [isAdminLoggedIn]);
 
-  // ==============================
   // LOGOUT
-  // ==============================
   const handleLogout = () => {
     localStorage.removeItem("adminLoggedIn");
     setIsAdminLoggedIn(false);
   };
 
-  // ==============================
   // ADD EVENT
-  // ==============================
   const handleAddEvent = async (formData) => {
     try {
       const payload = {
@@ -117,9 +105,7 @@ export default function EventDashboard() {
     }
   };
 
-  // ==============================
   // UPDATE EVENT
-  // ==============================
   const handleUpdateEvent = async (formData) => {
     try {
       const payload = {
@@ -172,9 +158,7 @@ export default function EventDashboard() {
     }
   };
 
-  // ==============================
   // DELETE EVENT
-  // ==============================
   const handleDeleteEvent = async (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
 
@@ -189,9 +173,7 @@ export default function EventDashboard() {
     }
   };
 
-  // ==============================
   // EDIT EVENT
-  // ==============================
   const handleEdit = (event) => {
     setEditingId(event.id);
     setEditingEvent(event);
