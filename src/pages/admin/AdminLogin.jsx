@@ -7,7 +7,6 @@ export default function AdminLogin({ onLoginSuccess }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 🔐 HARD-CODED ADMIN CREDENTIALS (NOT SHOWN ANYWHERE)
   const ADMIN_EMAIL = "admin@example.com";
   const ADMIN_PASSWORD = "password123";
 
@@ -27,7 +26,7 @@ export default function AdminLogin({ onLoginSuccess }) {
     setTimeout(() => {
       if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
         localStorage.setItem("adminLoggedIn", "true");
-        onLoginSuccess(); // ✅ THIS WAS MISSING BEFORE
+        onLoginSuccess(); 
       } else {
         setError("Invalid admin credentials");
         setLoading(false);
