@@ -199,7 +199,7 @@
   bottom: 0;
   z-index: 1;
   overflow: hidden;
-  pointer-events: none; /* ⭐ KEY FIX */
+  pointer-events: none;
 }
 
 .gradient-blob {
