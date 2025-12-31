@@ -12,7 +12,7 @@ const EventBooking = () => {
   const [events, setEvents] = useState([])
 
   useEffect(() => {
-  // 1️⃣ Try to get user from localStorage (after login)
+  // Try to get user from localStorage (after login)
   const storedUser = localStorage.getItem("user")
   if (storedUser) {
     const userObj = JSON.parse(storedUser)
@@ -22,7 +22,7 @@ const EventBooking = () => {
       email: userObj.email
     })
   } else {
-    // 2️⃣ fallback: fetch from backend if cookies/JWT exist
+    // fallback: fetch from backend if cookies/JWT exist
     fetch("http://localhost:5000/api/users/me", {
       credentials: "include",
     })
