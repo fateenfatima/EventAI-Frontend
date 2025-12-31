@@ -53,7 +53,7 @@ export default function Login() {
 
         showPopup("Successfully logged in!", "success");
 
-        // ✅ FIX: Only ONE redirect (yours was duplicated)
+        // Only ONE redirect (yours was duplicated)
         const redirect = localStorage.getItem("redirectAfterLogin") || "/";
         localStorage.removeItem("redirectAfterLogin");
 
