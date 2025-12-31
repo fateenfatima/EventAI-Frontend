@@ -13,7 +13,7 @@ const EventCard = ({ event, onBookTicket }) => {
     return
   }
 
-  const parsedUser = JSON.parse(storedUser) // ✅ parse here
+  const parsedUser = JSON.parse(storedUser) // parse here
   onBookTicket(event, parsedUser)           // pass user along
 }
 
