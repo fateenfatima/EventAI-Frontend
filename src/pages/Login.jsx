@@ -34,7 +34,7 @@ export default function Login() {
         // Save token
         localStorage.setItem("token", data.token);
 
-        // ✅ FIX: Correct fullname saving
+        // Correct fullname saving
         const userName =
           data.user?.fullName ||     // correct from signup
           data.user?.fullname ||     // fallback
